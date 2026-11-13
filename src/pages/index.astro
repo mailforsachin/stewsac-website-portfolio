@@ -1,0 +1,19 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+import FounderCard from '../components/FounderCard.astro';
+import { services } from '../data/services';
+import { site } from '../data/site';
+---
+<BaseLayout title="Stewsac Inc. — Technology Consulting and Software Solutions" description="Stewsac Inc. is a Canadian technology consulting and software solutions company serving North American enterprises, SMBs, public-sector organizations, and consulting partners.">
+  <section class="hero"><h1>Technology consulting and software solutions for North American organizations</h1>
+    <p>Stewsac Inc. helps enterprises, SMBs, public-sector organizations, and consulting partners design, build, and modernize technology — from AI and automation to cloud, software engineering, data, and governance.</p>
+    <p><a class="btn btn-primary" href="/contact/">Contact us</a> <a class="btn btn-secondary" href="/services/">Explore services</a></p>
+  </section>
+  <section aria-labelledby="services-h"><h2 id="services-h">Core services</h2>
+    <div class="grid">{services.map(s => <ServiceCard title={s.title} summary={s.summary} href={`/services/#${s.slug}`} />)}</div>
+  </section>
+  <section aria-labelledby="lead-h"><h2 id="lead-h">Leadership</h2>
+    <div class="grid">{site.founders.map(f => <FounderCard name={f.name} role={f.role} />)}</div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,26 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { projects } from '../data/projects';
+---
+<BaseLayout
+  title="Solutions and Projects — Stewsac Inc."
+  description="Founder-led engineering projects from Stewsac Inc.: meetingsAI, PAUMS, MyJournal, CivicPulse, Canada Tax App v2, OpsPilot AI, and FitFlow."
+>
+  <h1>Solutions and Projects</h1>
+  <p>These are founder-led engineering projects, documented from their public repository evidence. They are not presented as Stewsac Inc. client engagements.</p>
+
+  <div class="grid">
+    {projects.map(p => (
+      <article class="card" id={p.slug}>
+        <p class="tag">founder-led</p>
+        <h2>{p.title}</h2>
+        <p>{p.summary}</p>
+        {p.capabilities.length > 0 && <p class="muted"><strong>Capabilities:</strong> {p.capabilities.join(' · ')}</p>}
+        {p.stack.length > 0 && <p class="muted"><strong>Stack:</strong> {p.stack.join(', ')}</p>}
+        <p class="muted"><em>Evidence: {p.evidenceNote}</em></p>
+        {p.repoUrl && <p><a class="btn btn-secondary" href={p.repoUrl} rel="noopener noreferrer">Repository</a></p>}
+        {p.liveUrl && <p><a class="btn btn-secondary" href={p.liveUrl} rel="noopener noreferrer">Live portal</a></p>}
+      </article>
+    ))}
+  </div>
+</BaseLayout>

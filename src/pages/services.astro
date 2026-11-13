@@ -1,0 +1,11 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { services } from '../data/services';
+---
+<BaseLayout title="Services — Stewsac Inc." description="Stewsac Inc. services: AI and automation, cloud and infrastructure, software engineering, technology assessments, data and analytics, cybersecurity and governance, and technical program delivery.">
+  <h1>Services</h1>
+  {services.map(s => (<section id={s.slug} aria-labelledby={`${s.slug}-h`}>
+    <h2 id={`${s.slug}-h`}>{s.title}</h2><p>{s.summary}</p>
+    <p><a class="btn btn-secondary" href="/contact/">Discuss this service</a></p>
+  </section>))}
+</BaseLayout>

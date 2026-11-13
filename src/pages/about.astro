@@ -1,0 +1,11 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import FounderCard from '../components/FounderCard.astro';
+import { site } from '../data/site';
+---
+<BaseLayout title="About — Stewsac Inc." description="Stewsac Inc. is a Canadian federally incorporated technology consulting and software solutions company based in Edmonton, Alberta.">
+  <h1>About Stewsac Inc.</h1>
+  <p>Stewsac Inc. is a Canadian federally incorporated technology consulting and software solutions company. We serve North American enterprises, small and medium businesses, public-sector organizations, and technology consulting partners.</p>
+  <h2>Leadership</h2>
+  <div class="grid">{site.founders.map(f => <FounderCard name={f.name} role={f.role} bio={f.bio} photo={f.photo} />)}</div>
+</BaseLayout>

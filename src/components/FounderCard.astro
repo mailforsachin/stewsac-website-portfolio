@@ -1,0 +1,10 @@
+---
+export interface Props { name: string; role: string; bio?: string; photo?: string; linkedin?: string; }
+const { name, role, bio = '', photo = '/people/placeholder.svg', linkedin } = Astro.props;
+---
+<article class="card">
+  <img src={photo} alt={`${name}, ${role}`} width="96" height="96" loading="lazy" />
+  <h3>{name}</h3><p><strong>{role}</strong></p>
+  {bio ? <p>{bio}</p> : <p class="muted">Biography available on request.</p>}
+  {linkedin && <p><a href={linkedin} rel="noopener noreferrer nofollow" target="_blank">LinkedIn</a></p>}
+</article>
